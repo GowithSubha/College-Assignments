@@ -16,126 +16,177 @@ struct node
     struct node *next;
 };
 struct node *head = NULL;
+struct node *tail = NULL;
 void create()
 {
-    struct node *newnode, *temp;
-    newnode = (struct node *)malloc(sizeof(struct node));
-    printf("Enter the data\n");
-    scanf("%d", &newnode->data);
-    newnode->next = NULL;
-    if (head == NULL)
+    int n;
+    printf("Enter the number of nodes you want to create: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
     {
-        head = newnode;
-        temp = newnode;
-    }
-    else
-    {
-        temp->next = newnode;
-        temp = newnode;
+        struct node *newnode = (struct node *)malloc(sizeof(struct node));
+        printf("Enter the data of node %d: ", i + 1);
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        if (head == NULL)
+        {
+            head = newnode;
+            tail = newnode;
+            newnode->next = head;
+        }
+        else
+        {
+            tail->next = newnode;
+            tail = newnode;
+            tail->next = head;
+        }
     }
 }
 void display()
 {
-    struct node *temp;
-    temp = head;
+    struct node *temp = head;
     if (head == NULL)
     {
         printf("The list is empty\n");
     }
     else
     {
-        while (temp != NULL)
+        printf("The elements of the list are: ");
+        while (temp->next != head)
         {
-            printf("The Value of linked list: \t%d \n", temp->data);
+            printf("%d ", temp->data);
             temp = temp->next;
         }
+        printf("%d\n", temp->data);
     }
 }
-void insert_begin()
+void insert_at_beginning()
 {
-    struct node *newnode;
-    newnode = (struct node *)malloc(sizeof(struct node));
-    printf("Enter the data\n");
-    scanf("%d", &newnode->data);
-    newnode->next = head;
-    head = newnode;
-}
-void insert_end()
-{
-    struct node *newnode, *temp;
-    newnode = (struct node *)malloc(sizeof(struct node));
-    printf("Enter the data\n");
+    struct node *newnode = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the data of the newnode: ");
     scanf("%d", &newnode->data);
     newnode->next = NULL;
-    temp = head;
-    while (temp->next != NULL)
+    if (head == NULL)
     {
-        temp = temp->next;
+        head = newnode;
+        tail = newnode;
+        newnode->next = head;
     }
-    temp->next = newnode;
-}
-void delete_begin()
-{
-    struct node *temp;
-    temp = head;
-    head = head->next;
-    free(temp);
-}
-void delete_end()
-{
-    struct node *temp, *prevnode;
-    temp = head;
-    while (temp->next != NULL)
+    else
     {
-        prevnode = temp;
-        temp = temp->next;
+        newnode->next = head;
+        head = newnode;
+        tail->next = head;
     }
-    prevnode->next = NULL;
-    free(temp);
 }
-void delete_after()
+void insert_at_end()
 {
-    struct node *temp, *nextnode;
-    int pos, i = 1;
-    printf("Enter the position after which the node is to be deleted\n");
-    scanf("%d", &pos);
-    temp = head;
-    while (i < pos)
+    struct node *newnode = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the data of the newnode: ");
+    scanf("%d", &newnode->data);
+    newnode->next = NULL;
+    if (head == NULL)
     {
-        temp = temp->next;
-        i++;
+        head = newnode;
+        tail = newnode;
+        newnode->next = head;
     }
-    nextnode = temp->next;
-    temp->next = nextnode->next;
-    free(nextnode);
+    else
+    {
+        tail->next = newnode;
+        tail = newnode;
+        tail->next = head;
+    }
+}
+void delete_from_beginning()
+{
+    if (head == NULL)
+    {
+        printf("The list is empty\n");
+    }
+    else
+    {
+        struct node *temp = head;
+        head = head->next;
+        tail->next = head;
+        free(temp);
+    }
+}
+void delete_from_end()
+{
+    if (head == NULL)
+    {
+        printf("The list is empty\n");
+    }
+    else
+    {
+        struct node *temp = head;
+        while (temp->next != tail)
+        {
+            temp = temp->next;
+        }
+        temp->next = head;
+        free(tail);
+        tail = temp;
+    }
+}
+void delete_after_node()
+{
+    if (head == NULL)
+    {
+        printf("The list is empty\n");
+    }
+    else
+    {
+        int key;
+        printf("Enter the key after which you want to delete the node: ");
+        scanf("%d", &key);
+        struct node *temp = head;
+        while (temp->data != key)
+        {
+            temp = temp->next;
+        }
+        struct node *temp1 = temp->next;
+        temp->next = temp1->next;
+        free(temp1);
+    }
 }
 void delete_list()
 {
-    struct node *temp;
-    temp = head;
-    while (temp != NULL)
+    if (head == NULL)
     {
-        head = head->next;
+        printf("The list is empty\n");
+    }
+    else
+    {
+        struct node *temp = head;
+        while (temp->next != head)
+        {
+            struct node *temp1 = temp;
+            temp = temp->next;
+            free(temp1);
+        }
         free(temp);
-        temp = head;
+        head = NULL;
+        tail = NULL;
     }
 }
-int main(int argc, char const *argv[])
+
+int main()
 {
     int choice;
     while (1)
-    {
-        
-        printf("Enter 1 to create a node\n");
-        printf("Enter 2 to display the list\n");
-        printf("Enter 3 to insert a node at the beginning\n");
-        printf("Enter 4 to insert a node at the end\n");
-        printf("Enter 5 to delete a node from the beginning\n");
-        printf("Enter 6 to delete a node from the end\n");
-        printf("Enter 7 to delete a node after a given node\n");
-        printf("Enter 8 to delete the entire list\n");
+    {   printf("*************** MENU ***************\n")
+        printf("Enter 1 to create a circular linked list\n");
+        printf("Enter 2 to display the elements of the circular linked list\n");
+        printf("Enter 3 to insert a node at the beginning of the circular linked list\n");
+        printf("Enter 4 to insert a node at the end of the circular linked list\n");
+        printf("Enter 5 to delete a node from the beginning of the circular linked list\n");
+        printf("Enter 6 to delete a node from the end of the circular linked list\n");
+        printf("Enter 7 to delete a node after a given node of the circular linked list\n");
+        printf("Enter 8 to delete the entire circular linked list\n");
         printf("Enter 9 to exit\n");
-        printf("Enter your choice\n");
+        printf("Enter your choice: ");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -146,29 +197,27 @@ int main(int argc, char const *argv[])
             display();
             break;
         case 3:
-            insert_begin();
+            insert_at_beginning();
             break;
         case 4:
-            insert_end();
+            insert_at_end();
             break;
         case 5:
-            delete_begin();
+            delete_from_beginning();
             break;
         case 6:
-            delete_end();
+            delete_from_end();
             break;
         case 7:
-            delete_after();
+            delete_after_node();
             break;
         case 8:
             delete_list();
             break;
         case 9:
             exit(0);
-            break;
         default:
             printf("Invalid choice\n");
-            break;
         }
     }
     return 0;
