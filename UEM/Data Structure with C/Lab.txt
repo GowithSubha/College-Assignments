@@ -43,3 +43,63 @@ Assignment 3:
     f) Delete a node from the end of a circular linked list.
     g) Delete a node after a given node of a circular linked list.
     h) Delete the entire circular linked list.
+
+Assignment 6:
+1) Write a Menu driven C program to accomplish the following functionalities in Stack using an Array:
+    a. Insert an element into the stack using an array (Push Operation).
+    b. Delete an element from the stack using an array (Pop Operation).
+    c. Return the value of the topmost element of the stack (without deleting it from the stack) using an array.
+    d. Display the elements of a stack using an array.
+
+2) Write a Menu driven C program to accomplish the following functionalities in Stack using Linked List:
+    a. Insert an element into the stack using a Linked List (Push Operation).
+    b. Delete an element from the stack using a Linked List (Pop Operation).
+    c. Return the value of the topmost element of the stack (without deleting it from the stack) using a Linked List.
+    d. Display the elements of the stack using a Linked List.
+
+3) Write a program to convert an infix expression into its equivalent postfix notation.
+4) Write a program to convert an infix expression into its equivalent prefix notation.
+5) Write a program to evaluate a postfix expression.
+6) Write a program to evaluate a prefix expression.
+7) Write a program to print the Fibonacci series using recursion.
+8) Write a program to solve the tower of Hanoi problem using recursion.
+
+Assignment 7:
+Data Set- : 27,15,39,21,28,70  
+1. Write a C program to implement the concept of Bubble sort on the above data set.         Print the data set after every iteration. 
+2. Write a C program to implement the concept of Selection sort on the above data set.      Print the data set after every iteration. 
+3. Write a C program to implement the concept of Insertion sort on the above data set.      Print the data set after every iteration. 
+4. Write a C program to implement the concept of Quick sort on the above data set.          Print the data set after every iteration. 
+5. Write a C program to implement the concept of Merge sort on the above data set.          Print the data set after every iteration. 
+6. Write a C program to show that Quick sort is better than Bubble sort. 
+7. Write a C program to show that merge sort is more effective than quick sort. 
+
+Assignment 8:
+1. Write a C program to create a binary search tree using recursive function and display that.
+2. Write a C program to create a binary search tree using non-recursive function and display that.
+3. Write a C program to insert (by using a function) a specific element into an existing binary search tree and then display that.
+4. Write a C program to search an element in a BST and show the result.
+5. Write a C program to take user name as input and display the sorted sequence of characters using BST.
+6. Write a C program to sort a given set of integers using BST.
+7. Write a C program to display a BST using In-order, Pre-order, Post-order.
+8. Write a C program to Count the number of nodes present in an existing BST and display the highest element present in the BST.
+9. Write a C program to prove that binary search tree is better than binary tree.
+
+Assignment 9
+1. to create a binary tree using recursive function and display that level wise.
+2. to create a binary tree using non-recursive function and display that level wise.
+3. to create a binary tree using array only and display the tree level wise.
+4. to identify the height of a binary tree.
+5. to identify degree of a given node.
+6. to count number of leaf node present in a binary tree.
+7. to count number of internal node present in a binary tree.
+8. to count number of node present in a given binary tree using linked list.
+9. to count number of node present in a given binary tree using array.
+10. to count number of siblings present in a binary tree
+
+Assignment 10
+1. Write a C program to search an element recursively in a binary search tree. 
+2. Write a C program to delete a node having no child from a binary search tree. 
+3. Write a C program to delete a node having one child from a binary search tree. 
+4. Write a C program to delete a node having two children from a binary search tree. 
+5. Write a C program to delete a node from a binary search tree.

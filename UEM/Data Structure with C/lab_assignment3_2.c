@@ -176,7 +176,7 @@ int main()
 {
     int choice;
     while (1)
-    {   printf("*************** MENU ***************\n")
+    {   printf("*************** MENU ***************\n");
         printf("Enter 1 to create a circular linked list\n");
         printf("Enter 2 to display the elements of the circular linked list\n");
         printf("Enter 3 to insert a node at the beginning of the circular linked list\n");

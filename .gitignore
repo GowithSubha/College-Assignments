@@ -3,3 +3,5 @@
 *.dll
 *tempCodeRunnerFile.*
 test.c
+*.class
+*.pdf
