@@ -1,4 +1,5 @@
-''' to implement FPA method
+''' 
+Write a program to implement FPA method
 
 In a system, total no. for each type FP is given as:
     i/p-&gt;60, file-&gt;25, query-&gt;35, i/f-&gt;20, o/p-&gt;25.The types of FP are simple, avg., complex.
